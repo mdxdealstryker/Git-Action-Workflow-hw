@@ -3,7 +3,7 @@ on: push
 jobs:
   Example-Actions-Job:
     name: Exploring GitHub Actions
-    runs-on: self hosted
+    runs-on: ubuntu-latest
     steps:
       # Display the event that triggered the workflow
       - run: echo "The job was triggered by a ${{ github.event_name }} event."
@@ -32,6 +32,11 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       
+      - name: Setup dotnet on runner
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '3.x'
+      
       - name: Display dotnet version
         run: dotnet --version
       
@@ -42,3 +47,10 @@ jobs:
           ls ${{ runner.tool_cache }}
       
       - run: echo "This job's status is ${{ job.status }}."
+
+  Second-Job:
+    name: The second job running on another runner
+    runs-on: windows-latest
+    needs: Example-Actions-Job
+    steps:
+      - run: echo "This job is now running on a ${{ runner.os }} server hosted by GitHub."
