@@ -1,0 +1,45 @@
+# Ignore Visual Studio files
+.vs/
+
+# Ignore NuGet packages
+*.nuget.props
+*.nuget.targets
+**/packages/*
+!**/packages/*.config
+
+# Ignore build output
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.cache
+*.suo
+*.user
+*.bak
+*.log
+*.vspscc
+*.vssscc
+._*
+_*.*
+*.dbmdl
+*.jfm
+*.gpState
+
+# Ignore Node.js dependencies
+node_modules/
+
+# Ignore user-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore ReSharper files
+_ReSharper*/
+
+# Ignore Visual Studio Code files
+.vscode/
+
+# Ignore Webpack build output
+dist/
